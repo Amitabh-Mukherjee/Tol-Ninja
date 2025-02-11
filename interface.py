@@ -43,7 +43,11 @@ def generate_interface():
     root = tk.Tk()
     root.title(TITLE)
     root.iconbitmap("icon.ico")
-    root.geometry('1800x1200')
+    root.geometry('1500x1000')
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    print(screen_width, screen_height)
+    #root.geometry(f"+{int((screen_width - 1000) / 2)}+{int((screen_height - 600) / 2)}")
 
     # Set the theme.
     # Credits to: https://github.com/rdbende/Sun-Valley-ttk-theme & https://github.com/quantumblacklabs/qbstyles
@@ -150,7 +154,7 @@ def _generate_setup_frame(setup_frame):
     bbox = setup_scroll_canvas.bbox(tk.ALL)  # Get bounding box of canvas
 
     # Define the scrollable region as entire canvas with only the desired width/height
-    setup_scroll_canvas.configure(scrollregion=bbox, height=850)
+    setup_scroll_canvas.configure(scrollregion=bbox, height=350)
 
     init_entry = StackRow(table_frame, init_entry=True)
     init_entry.pack(fill="x", expand=1)
